@@ -21,13 +21,13 @@ define( 'CHILD_THEME_VERSION', '0.0.0' );
 // Sets up the Theme.
 require_once get_stylesheet_directory() . '/lib/theme-defaults.php';
 
-add_action( 'after_setup_theme', 'genesis_sample_localization_setup' );
+add_action( 'after_setup_theme', 'genesis_hcc_localization_setup' );
 /**
  * Sets localization (do not remove).
  *
  * @since 1.0.0
  */
-function genesis_sample_localization_setup() {
+function genesis_hcc_localization_setup() {
 
     load_child_theme_textdomain( 'genesis-sample', get_stylesheet_directory() . '/languages' );
 
@@ -43,13 +43,13 @@ require_once get_stylesheet_directory() . '/lib/customize.php';
 require_once get_stylesheet_directory() . '/lib/output.php';
 
 // Adds WooCommerce support.
-require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-setup.php';
+//require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-setup.php';
 
 // Adds the required WooCommerce styles and Customizer CSS.
-require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-output.php';
+//require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-output.php';
 
 // Adds the Genesis Connect WooCommerce notice.
-require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-notice.php';
+//require_once get_stylesheet_directory() . '/lib/woocommerce/woocommerce-notice.php';
 
 add_action( 'after_setup_theme', 'genesis_child_gutenberg_support' );
 /**
@@ -61,13 +61,13 @@ function genesis_child_gutenberg_support() { // phpcs:ignore WordPress.NamingCon
     require_once get_stylesheet_directory() . '/lib/gutenberg/init.php';
 }
 
-add_action( 'wp_enqueue_scripts', 'genesis_sample_enqueue_scripts_styles' );
+add_action( 'wp_enqueue_scripts', 'genesis_hcc_enqueue_scripts_styles' );
 /**
  * Enqueues scripts and styles.
  *
  * @since 1.0.0
  */
-function genesis_sample_enqueue_scripts_styles() {
+function genesis_hcc_enqueue_scripts_styles() {
 
     wp_enqueue_style(
         'genesis-sample-fonts',
@@ -90,7 +90,7 @@ function genesis_sample_enqueue_scripts_styles() {
     wp_localize_script(
         'genesis-sample-responsive-menu',
         'genesis_responsive_menu',
-        genesis_sample_responsive_menu_settings()
+        genesis_hcc_responsive_menu_settings()
     );
 
     wp_enqueue_script(
@@ -108,7 +108,7 @@ function genesis_sample_enqueue_scripts_styles() {
  *
  * @since 2.3.0
  */
-function genesis_sample_responsive_menu_settings() {
+function genesis_hcc_responsive_menu_settings() {
 
     $settings = array(
         'mainMenu'         => __( 'Menu', 'genesis-sample' ),
@@ -166,7 +166,7 @@ genesis_unregister_layout( 'sidebar-sidebar-content' );
 remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
 remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
 
-add_action( 'genesis_theme_settings_metaboxes', 'genesis_sample_remove_metaboxes' );
+add_action( 'genesis_theme_settings_metaboxes', 'genesis_hcc_remove_metaboxes' );
 /**
  * Removes output of unused admin settings metaboxes.
  *
@@ -174,14 +174,14 @@ add_action( 'genesis_theme_settings_metaboxes', 'genesis_sample_remove_metaboxes
  *
  * @param string $_genesis_admin_settings The admin screen to remove meta boxes from.
  */
-function genesis_sample_remove_metaboxes( $_genesis_admin_settings ) {
+function genesis_hcc_remove_metaboxes( $_genesis_admin_settings ) {
 
     remove_meta_box( 'genesis-theme-settings-header', $_genesis_admin_settings, 'main' );
     remove_meta_box( 'genesis-theme-settings-nav', $_genesis_admin_settings, 'main' );
 
 }
 
-add_filter( 'genesis_customizer_theme_settings_config', 'genesis_sample_remove_customizer_settings' );
+add_filter( 'genesis_customizer_theme_settings_config', 'genesis_hcc_remove_customizer_settings' );
 /**
  * Removes output of header and front page breadcrumb settings in the Customizer.
  *
@@ -190,7 +190,7 @@ add_filter( 'genesis_customizer_theme_settings_config', 'genesis_sample_remove_c
  * @param array $config Original Customizer items.
  * @return array Filtered Customizer items.
  */
-function genesis_sample_remove_customizer_settings( $config ) {
+function genesis_hcc_remove_customizer_settings( $config ) {
 
     unset( $config['genesis']['sections']['genesis_header'] );
     unset( $config['genesis']['sections']['genesis_breadcrumbs']['controls']['breadcrumb_front_page'] );
@@ -209,7 +209,7 @@ add_action( 'genesis_header', 'genesis_do_nav', 12 );
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_footer', 'genesis_do_subnav', 10 );
 
-add_filter( 'wp_nav_menu_args', 'genesis_sample_secondary_menu_args' );
+add_filter( 'wp_nav_menu_args', 'genesis_hcc_secondary_menu_args' );
 /**
  * Reduces secondary navigation menu to one level depth.
  *
@@ -218,7 +218,7 @@ add_filter( 'wp_nav_menu_args', 'genesis_sample_secondary_menu_args' );
  * @param array $args Original menu options.
  * @return array Menu options with depth set to 1.
  */
-function genesis_sample_secondary_menu_args( $args ) {
+function genesis_hcc_secondary_menu_args( $args ) {
 
     if ( 'secondary' !== $args['theme_location'] ) {
         return $args;
@@ -229,7 +229,7 @@ function genesis_sample_secondary_menu_args( $args ) {
 
 }
 
-add_filter( 'genesis_author_box_gravatar_size', 'genesis_sample_author_box_gravatar' );
+add_filter( 'genesis_author_box_gravatar_size', 'genesis_hcc_author_box_gravatar' );
 /**
  * Modifies size of the Gravatar in the author box.
  *
@@ -238,13 +238,13 @@ add_filter( 'genesis_author_box_gravatar_size', 'genesis_sample_author_box_grava
  * @param int $size Original icon size.
  * @return int Modified icon size.
  */
-function genesis_sample_author_box_gravatar( $size ) {
+function genesis_hcc_author_box_gravatar( $size ) {
 
     return 90;
 
 }
 
-add_filter( 'genesis_comment_list_args', 'genesis_sample_comments_gravatar' );
+add_filter( 'genesis_comment_list_args', 'genesis_hcc_comments_gravatar' );
 /**
  * Modifies size of the Gravatar in the entry comments.
  *
@@ -253,7 +253,7 @@ add_filter( 'genesis_comment_list_args', 'genesis_sample_comments_gravatar' );
  * @param array $args Gravatar settings.
  * @return array Gravatar settings with modified size.
  */
-function genesis_sample_comments_gravatar( $args ) {
+function genesis_hcc_comments_gravatar( $args ) {
 
     $args['avatar_size'] = 60;
     return $args;
