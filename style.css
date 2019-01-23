@@ -175,7 +175,7 @@ textarea:focus,
 }
 
 a {
-    color: #0073e5;
+    color: #6b6a43;
     text-decoration: underline;
     transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
@@ -442,7 +442,7 @@ input[type="submit"]:focus,
 input[type="submit"]:hover,
 .button:focus,
 .button:hover {
-    background-color: #0073e5;
+    background-color: #6b6a43;
     color: #fff;
 }
 
@@ -689,7 +689,7 @@ th:first-child {
 
 .entry-title a:focus,
 .entry-title a:hover {
-    color: #0073e5;
+    color: #6b6a43;
 }
 
 .widget-title {
@@ -877,7 +877,7 @@ img.alignright,
 .gs-faq__question:focus,
 .gs-faq__question:hover {
     background: transparent;
-    color: #0073e5;
+    color: #6b6a43;
 }
 
 .gs-faq__question::after {
@@ -1002,7 +1002,7 @@ img.alignright,
 .genesis-nav-menu .current-menu-item > a,
 .genesis-nav-menu .sub-menu .current-menu-item > a:focus,
 .genesis-nav-menu .sub-menu .current-menu-item > a:hover {
-    color: #0073e5;
+    color: #6b6a43;
     text-decoration: none;
 }
 
@@ -1080,7 +1080,7 @@ img.alignright,
 .sub-menu-toggle:hover {
     background-color: transparent;
     border-width: 0;
-    color: #0073e5;
+    color: #6b6a43;
 }
 
 .menu-toggle {
@@ -1421,7 +1421,7 @@ p.entry-meta {
 
     .genesis-nav-menu > .menu-highlight > a:focus,
     .genesis-nav-menu > .menu-highlight > a:hover {
-        background-color: #0073e5;
+        background-color: #6b6a43;
     }
 
     .genesis-nav-menu .sub-menu,

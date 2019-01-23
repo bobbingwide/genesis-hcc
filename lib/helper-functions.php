@@ -20,7 +20,7 @@
  */
 function genesis_hcc_customizer_get_default_link_color() {
 
-    return '#0073e5';
+    return '#6b6a43';
 
 }
 
@@ -34,7 +34,7 @@ function genesis_hcc_customizer_get_default_link_color() {
  */
 function genesis_hcc_customizer_get_default_accent_color() {
 
-    return '#0073e5';
+    return '#6b6a43';
 
 }
 
